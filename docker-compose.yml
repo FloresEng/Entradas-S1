@@ -15,7 +15,7 @@ services:
       - oracle_data:/opt/oracle/oradata
 
   eventos-app:
-    image: FloresEng/entradas-s1:latest
+    image: floreseng/entradas-s1:latest
     container_name: eventos_app
     restart: always
     ports:

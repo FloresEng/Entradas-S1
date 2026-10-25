@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: FloresEng/entradas-s1:latest
+          tags: floreseng/entradas-s1:latest
 
   deploy:
     needs: build-and-push
