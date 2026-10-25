@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  
+  eventos-oracle:
+    image: gvenzl/oracle-free:latest
+    container_name: eventos-oracle
+    restart: always
+    environment:
+      - ORACLE_PASSWORD=eventos_password
+      - APP_USER=evento_user
+      - APP_USER_PASSWORD=eventos_password
+    ports:
+      - "1523:1521"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+
+  eventos-app:
+    build: .
+    container_name: eventos_app
+    restart: always
+    ports:
+      - "8081:8081" 
+    environment:
+      DB_HOST: eventos-oracle
+      DB_PORT: 1521
+      DB_NAME: FREEPDB1
+      DB_USER: evento_user
+      DB_PASSWORD: eventos_password
+    depends_on:
+      - eventos-oracle
+
+volumes:
+  oracle_data:
