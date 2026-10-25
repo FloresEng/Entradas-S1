@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  
   eventos-oracle:
     image: gvenzl/oracle-free:latest
     container_name: eventos-oracle
@@ -11,16 +10,16 @@ services:
       - APP_USER=evento_user
       - APP_USER_PASSWORD=eventos_password
     ports:
-      - "1523:1521"
+      - "1521:1521"
     volumes:
       - oracle_data:/opt/oracle/oradata
 
   eventos-app:
-    build: .
+    image: FloresEng/entradas-s1:latest
     container_name: eventos_app
     restart: always
     ports:
-      - "8081:8081" 
+      - "8081:8081"
     environment:
       DB_HOST: eventos-oracle
       DB_PORT: 1521
