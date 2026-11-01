@@ -23,7 +23,7 @@ services:
       DB_USER: SYSTEM
       DB_PASSWORD: eventos_password
       AWS_REGION: ${AWS_REGION:-us-east-1}
-      AWS_S3_BUCKET: ${AWS_S3_BUCKET:-}
+      AWS_S3_BUCKET: resumen-entradas-cloud-nat
     depends_on:
       - eventos-oracle
 
