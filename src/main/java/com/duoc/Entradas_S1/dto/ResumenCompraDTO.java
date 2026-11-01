@@ -9,6 +9,9 @@ import lombok.Getter;
 @Builder
 public class ResumenCompraDTO {
 
+    @JsonProperty("Número de Resumen")
+    private Long numeroResumen;
+
     @JsonProperty("Nombre de Evento")
     private String nomEvento;
 
